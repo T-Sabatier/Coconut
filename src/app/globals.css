@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+:root {
+  --yellow:      #E8C94A;
+  --yellow-mid:  #D4B032;
+  --yellow-pale: #F5E48A;
+  --ivory:       #FAF6EC;
+  --ivory-mid:   #F0E8D4;
+  --ivory-dark:  #E4D8BC;
+  --ink:         #1A1710;
+  --ink-soft:    #3A3420;
+  --text-mid:    #7A7050;
+  --line:        #DDD0A8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+}

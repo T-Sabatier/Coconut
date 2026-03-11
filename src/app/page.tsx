@@ -1,3 +1,4 @@
+import Hero from '@/components/Hero/Hero'
 import { getModules } from '../sanity/lib/queries'
 
 export default async function Home() {
@@ -5,6 +6,7 @@ export default async function Home() {
 
   return (
     <main>
+      <Hero />
       <h1>Mes modules</h1>
       {modules.map((module: any) => (
         <div key={module._id}>
