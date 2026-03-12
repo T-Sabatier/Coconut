@@ -1,0 +1,136 @@
+.section {
+  padding: 72px 56px 88px;
+  background: var(--ivory-mid);
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+
+  h2 {
+    font-family: var(--font-cormorant);
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+
+    em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--yellow-mid);
+    }
+  }
+}
+
+.headRight {
+  font-size: 0.67rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  padding-bottom: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  background: var(--ivory);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(26, 23, 16, 0.06);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 20px 56px rgba(26, 23, 16, 0.14);
+    transform: translateY(-6px);
+
+    .cardBand {
+      background: var(--ink);
+    }
+
+    .cardNum {
+      color: var(--yellow);
+    }
+
+    .cardArrow {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.cardBand {
+  background: var(--yellow);
+  padding: 20px 26px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s;
+}
+
+.cardNum {
+  font-family: var(--font-cormorant);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.cardIcon {
+  font-size: 1.3rem;
+  opacity: 0.8;
+}
+
+.cardBody {
+  padding: 22px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-cormorant);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.cardTopics {
+  font-size: 0.74rem;
+  color: var(--text-mid);
+  line-height: 1.95;
+  flex: 1;
+}
+
+.cardFooter {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardCount {
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ivory-dark);
+}
+
+.cardArrow {
+  font-size: 0.9rem;
+  color: var(--ink);
+  opacity: 0;
+  transform: translate(-5px, 5px);
+  transition: all 0.25s;
+}

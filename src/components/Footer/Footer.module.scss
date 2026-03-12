@@ -1,0 +1,32 @@
+.footer {
+  background: var(--ink);
+  padding: 24px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid var(--yellow-mid);
+}
+
+.name {
+  font-family: var(--font-cormorant);
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(250, 246, 236, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background: var(--yellow);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.copy {
+  font-size: 0.7rem;
+  color: rgba(250, 246, 236, 0.2);
+  letter-spacing: 0.06em;
+}

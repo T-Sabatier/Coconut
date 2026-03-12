@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Cormorant_Garamond, Jost } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header/Header'
+import Footer from '@/components/Footer/Footer'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body className={`${cormorant.variable} ${jost.variable}`}>
       <Header/>
         {children}
+      <Footer />
       </body>
     </html>
   )
