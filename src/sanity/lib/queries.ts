@@ -8,7 +8,8 @@ export async function getModules() {
       titre,
       numero,
       emoji,
-      description
+      description,
+      "slug": slug.current
     }
   `)
 }

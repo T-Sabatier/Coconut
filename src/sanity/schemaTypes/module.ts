@@ -10,6 +10,13 @@ export const moduleType = {
       validation: (Rule: any) => Rule.required(),
     },
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'titre' },
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
       name: 'numero',
       title: 'Numéro',
       type: 'number',

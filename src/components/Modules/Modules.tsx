@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './Modules.module.scss'
 
 interface Module {
@@ -6,6 +7,7 @@ interface Module {
   numero: number
   emoji: string
   description: string
+  slug: string  // ← ajoutez ça
 }
 
 interface Props {
@@ -22,20 +24,22 @@ export default function Modules({ modules }: Props) {
 
       <div className={styles.grid}>
         {modules.map((module) => (
-          <div key={module._id} className={styles.card}>
-            <div className={styles.cardBand}>
-              <span className={styles.cardNum}>0{module.numero}</span>
-              <span className={styles.cardIcon}>{module.emoji}</span>
-            </div>
-            <div className={styles.cardBody}>
-              <h3 className={styles.cardTitle}>{module.titre}</h3>
-              <p className={styles.cardTopics}>{module.description}</p>
-              <div className={styles.cardFooter}>
-                <span className={styles.cardCount}>chapitres</span>
-                <span className={styles.cardArrow}>↗</span>
+          <Link href={`/modules/${module.slug}`} key={module._id} className={styles.cardLink}> {/* ← Link remplace la div */}
+            <div className={styles.card}>
+              <div className={styles.cardBand}>
+                <span className={styles.cardNum}>0{module.numero}</span>
+                <span className={styles.cardIcon}>{module.emoji}</span>
+              </div>
+              <div className={styles.cardBody}>
+                <h3 className={styles.cardTitle}>{module.titre}</h3>
+                <p className={styles.cardTopics}>{module.description}</p>
+                <div className={styles.cardFooter}>
+                  <span className={styles.cardCount}>chapitres</span>
+                  <span className={styles.cardArrow}>↗</span>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
