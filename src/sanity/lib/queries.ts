@@ -36,8 +36,25 @@ export async function getModuleBySlug(slug: string) {
       "chapitres": *[_type == "chapitre" && module._ref == ^._id] | order(ordre asc) {
         _id,
         titre,
-        ordre
+        ordre,
+        "slug": slug.current
       }
     }
   `, { slug })
+}
+export async function getChapitreBySlug(chapitreSlug: string) {
+  return await client.fetch(`
+    *[_type == "chapitre" && slug.current == $chapitreSlug][0] {
+      _id,
+      titre,
+      contenu,
+      ordre,
+      "module": module-> {
+        titre,
+        numero,
+        emoji,
+        "slug": slug.current
+      }
+    }
+  `, { chapitreSlug })
 }

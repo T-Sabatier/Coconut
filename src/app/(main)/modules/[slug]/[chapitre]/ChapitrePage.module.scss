@@ -1,0 +1,69 @@
+.main {
+  min-height: 100vh;
+  background: var(--ivory);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  align-self: flex-start;
+}
+
+.bcLink {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 236, 0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover { color: var(--yellow); }
+}
+
+.bcSep {
+  font-size: 0.65rem;
+  color: rgba(250, 246, 236, 0.25);
+}
+
+.bcCurrent {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 236, 0.7);
+}
+
+.header {
+  background: var(--ink);
+  padding: 56px;
+  color: var(--ivory);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.moduleLabel {
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 16px;
+}
+
+.titre {
+  font-family: var(--font-cormorant);
+  font-size: 2.8rem;
+  font-weight: 300;
+  line-height: 1.2;
+  max-width: 680px;
+}
+
+.contenu {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 56px;
+}
