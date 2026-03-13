@@ -1,6 +1,7 @@
 import { getChapitreBySlug } from '@/sanity/lib/queries'
 import Link from 'next/link'
 import styles from './ChapitrePage.module.scss'
+import PortableText from '@/components/PortableText/PortableText'
 
 interface Props {
   params: Promise<{ slug: string, chapitre: string }>
@@ -25,8 +26,12 @@ export default async function ChapitrePage({ params }: Props) {
       </div>
 
       <div className={styles.contenu}>
-        <p>Contenu à venir...</p>
-      </div>
+  {data.contenu ? (
+    <PortableText value={data.contenu} />
+  ) : (
+    <p>Contenu à venir...</p>
+  )}
+</div>
     </main>
   )
 }

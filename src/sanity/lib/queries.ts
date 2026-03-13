@@ -58,3 +58,33 @@ export async function getChapitreBySlug(chapitreSlug: string) {
     }
   `, { chapitreSlug })
 }
+export async function searchChapitres(query: string) {
+  // normalise : enlève accents, met en minuscule
+  const normalize = (str: string) =>
+    str.toLowerCase()
+       .normalize('NFD')
+       .replace(/[\u0300-\u036f]/g, '')
+
+  const q = normalize(query)
+
+  return await client.fetch(`
+    *[_type == "chapitre"] {
+      _id,
+      titre,
+      "slug": slug.current,
+      "titreNorm": string::lower(titre),
+      "module": module-> {
+        titre,
+        numero,
+        emoji,
+        "slug": slug.current
+      }
+    }
+  `)
+  .then((results: any[]) =>
+    results.filter(r =>
+      normalize(r.titre).includes(q) ||
+      normalize(r.module.titre).includes(q)
+    )
+  )
+}

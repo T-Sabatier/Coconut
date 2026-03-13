@@ -1,0 +1,49 @@
+.content {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.paragraph {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.h2 {
+  font-family: var(--font-cormorant);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 48px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.h3 {
+  font-family: var(--font-cormorant);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 32px 0 12px;
+}
+
+.blockquote {
+  border-left: 3px solid var(--yellow);
+  padding: 12px 24px;
+  margin: 24px 0;
+  background: var(--ivory-mid);
+  font-style: italic;
+  color: var(--text-mid);
+  border-radius: 0 4px 4px 0;
+}
+
+.strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.em {
+  font-style: italic;
+  color: var(--text-mid);
+}
