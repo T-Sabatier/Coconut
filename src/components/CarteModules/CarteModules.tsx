@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from './Modules.module.scss'
+import styles from './CarteModules.module.scss'
 
 interface Module {
   _id: string
@@ -7,7 +7,7 @@ interface Module {
   numero: number
   emoji: string
   description: string
-  slug: string  // ← ajoutez ça
+  slug: string 
 }
 
 interface Props {

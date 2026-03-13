@@ -1,0 +1,98 @@
+.main {
+  min-height: 100vh;
+  background: var(--ivory);
+}
+
+.hero {
+  background: var(--ink);
+  padding: 72px 56px;
+  text-align: center;
+  color: var(--ivory);
+}
+
+.emoji {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.numero {
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 12px;
+}
+
+.titre {
+  font-family: var(--font-cormorant);
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: 0.82rem;
+  color: rgba(250, 246, 236, 0.6);
+  line-height: 1.8;
+}
+
+.chapitres {
+  padding: 56px;
+}
+
+.chapitresTitle {
+  font-family: var(--font-cormorant);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.chapitre {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: var(--yellow-pale);
+    transform: translateX(6px);
+  }
+}
+
+.chapitreNum {
+  font-family: var(--font-cormorant);
+  font-size: 1.1rem;
+  color: var(--yellow-mid);
+  font-weight: 600;
+  min-width: 32px;
+}
+
+.chapitreTitle {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+
+.chapitreArrow {
+  color: var(--text-mid);
+  font-size: 0.9rem;
+  transition: transform 0.2s;
+
+  .chapitre:hover & {
+    transform: translateX(4px);
+    color: var(--ink);
+  }
+}

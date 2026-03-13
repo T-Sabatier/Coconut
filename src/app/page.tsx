@@ -1,5 +1,5 @@
 import Hero from '@/components/Hero/Hero'
-import Modules from '@/components/Modules/Modules'
+import CarteModules from '@/components/CarteModules/CarteModules'
 import Ressources from '@/components/Ressources/Ressources'
 import { getModules } from '../sanity/lib/queries'
 
@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <main>
       <Hero />
-      <Modules modules={modules} />
+      <CarteModules modules={modules} />
       <Ressources />
     </main>
   )

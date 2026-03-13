@@ -25,3 +25,19 @@ export async function getChapitres(moduleId: string) {
     }
   `, { moduleId })
 }
+export async function getModuleBySlug(slug: string) {
+  return await client.fetch(`
+    *[_type == "module" && slug.current == $slug][0] {
+      _id,
+      titre,
+      numero,
+      emoji,
+      description,
+      "chapitres": *[_type == "chapitre" && module._ref == ^._id] | order(ordre asc) {
+        _id,
+        titre,
+        ordre
+      }
+    }
+  `, { slug })
+}
