@@ -9,6 +9,13 @@ export const chapitreType = {
       type: 'string',
       validation: (Rule: any) => Rule.required(),
     },
+     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'titre' },
+      validation: (Rule: any) => Rule.required(),
+    },
     {
       name: 'module',
       title: 'Module',

@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Jost } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/Header/Header'
-import Footer from '@/components/Footer/Footer'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -22,17 +20,11 @@ export const metadata: Metadata = {
   description: 'Cours de technologie pâtissière',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
       <body className={`${cormorant.variable} ${jost.variable}`}>
-      <Header/>
         {children}
-      <Footer />
       </body>
     </html>
   )
