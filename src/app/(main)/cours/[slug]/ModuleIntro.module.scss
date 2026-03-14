@@ -1,0 +1,115 @@
+.main {
+  min-height: 100vh;
+  background: var(--ivory);
+}
+
+.hero {
+  background: var(--ink);
+  padding: 56px;
+  text-align: center;
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backLink {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 236, 0.4);
+  text-decoration: none;
+  align-self: flex-start;
+  margin-bottom: 32px;
+  transition: color 0.2s;
+
+  &:hover { color: var(--yellow); }
+}
+
+.emoji {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.numero {
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 12px;
+}
+
+.titre {
+  font-family: var(--font-cormorant);
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 16px;
+  max-width: 680px;
+}
+
+.description {
+  font-size: 0.82rem;
+  color: rgba(250, 246, 236, 0.6);
+  line-height: 1.8;
+}
+
+.chapitres {
+  padding: 56px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.chapitresTitle {
+  font-family: var(--font-cormorant);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+  background: white;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background: var(--yellow-pale);
+    transform: translateX(6px);
+  }
+}
+
+.cardNum {
+  font-family: var(--font-cormorant);
+  font-size: 1.1rem;
+  color: var(--yellow-mid);
+  font-weight: 600;
+  min-width: 32px;
+}
+
+.cardTitre {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.cardArrow {
+  color: var(--text-mid);
+  transition: transform 0.2s;
+
+  .card:hover & {
+    transform: translateX(4px);
+    color: var(--ink);
+  }
+}

@@ -24,7 +24,7 @@ export default function Modules({ modules }: Props) {
 
       <div className={styles.grid}>
         {modules.map((module) => (
-          <Link href={`/modules/${module.slug}`} key={module._id} className={styles.cardLink}> {/* ← Link remplace la div */}
+          <Link href={`/cours/${module.slug}`} key={module._id} className={styles.cardLink}>
             <div className={styles.card}>
               <div className={styles.cardBand}>
                 <span className={styles.cardNum}>0{module.numero}</span>
