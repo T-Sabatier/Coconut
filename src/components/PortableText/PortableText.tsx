@@ -1,5 +1,9 @@
 import { PortableText as SanityPortableText } from '@portabletext/react'
+import imageUrlBuilder from '@sanity/image-url'
+import { client } from '@/sanity/lib/client'
 import styles from './PortableText.module.scss'
+
+const builder = imageUrlBuilder(client)
 
 const components = {
   block: {
@@ -11,6 +15,20 @@ const components = {
   marks: {
     strong: ({ children }: any) => <strong className={styles.strong}>{children}</strong>,
     em: ({ children }: any) => <em className={styles.em}>{children}</em>,
+  },
+  types: {
+    image: ({ value }: any) => (
+      <figure className={styles.figure}>
+        <img
+          src={builder.image(value).width(780).url()}
+          alt={value.legende || ''}
+          className={styles.image}
+        />
+        {value.legende && (
+          <figcaption className={styles.legende}>{value.legende}</figcaption>
+        )}
+      </figure>
+    ),
   },
 }
 

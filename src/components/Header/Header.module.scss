@@ -79,3 +79,14 @@
     color: var(--ivory);
   }
 }
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userName {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--text-mid);
+}
