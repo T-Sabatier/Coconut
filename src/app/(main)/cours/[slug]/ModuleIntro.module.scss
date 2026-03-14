@@ -5,7 +5,7 @@
 
 .hero {
   background: var(--ink);
-  padding: 56px;
+  padding: 32px 56px 56px;
   text-align: center;
   color: var(--ivory);
   display: flex;
@@ -117,7 +117,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 15px;
   align-self: flex-start;
 }
 
