@@ -8,9 +8,14 @@ export default async function CoursPage() {
   return (
     <main className={styles.main}>
       <div className={styles.hero}>
-        <p className={styles.eyebrow}>Tous les modules</p>
-        <h1 className={styles.titre}>Choisissez <em>votre module</em></h1>
-      </div>
+  <div className={styles.breadcrumb}>
+    <Link href="/" className={styles.bcLink}>Accueil</Link>
+    <span className={styles.bcSep}>→</span>
+    <span className={styles.bcCurrent}>Cours</span>
+  </div>
+  <p className={styles.eyebrow}>Tous les modules</p>
+  <h1 className={styles.titre}>Choisissez <em>votre module</em></h1>
+</div>
 
       <div className={styles.grid}>
         {modules.map((module: any) => (

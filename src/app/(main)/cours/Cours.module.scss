@@ -119,3 +119,34 @@
   transform: translate(-5px, 5px);
   transition: all 0.25s;
 }
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  align-self: flex-start;
+}
+
+.bcLink {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 236, 0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover { color: var(--yellow); }
+}
+
+.bcSep {
+  font-size: 0.65rem;
+  color: rgba(250, 246, 236, 0.25);
+}
+
+.bcCurrent {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 236, 0.7);
+}

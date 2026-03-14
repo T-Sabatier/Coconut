@@ -30,7 +30,7 @@ export default function CoursLayout({ children, module, slug }: Props) {
     <div className={styles.layout}>
       <aside className={styles.sidebar}>
         <div className={styles.sidebarHeader}>
-          <Link href="/" className={styles.backLink}>← Accueil</Link>
+          <Link href="/cours" className={styles.backLink}>← Cours</Link>
           <div className={styles.moduleInfo}>
             <span className={styles.moduleEmoji}>{module.emoji}</span>
             <span className={styles.moduleTitle}>{module.titre}</span>

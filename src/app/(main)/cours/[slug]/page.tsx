@@ -10,10 +10,16 @@ export default async function CoursIndexPage({ params }: Props) {
   const { slug } = await params
   const module = await getModuleBySlug(slug)
 
-  return (
+return (
     <main className={styles.main}>
       <div className={styles.hero}>
-        <Link href="/" className={styles.backLink}>← Accueil</Link>
+        <div className={styles.breadcrumb}>
+          <Link href="/" className={styles.bcLink}>Accueil</Link>
+          <span className={styles.bcSep}>→</span>
+          <Link href="/cours" className={styles.bcLink}>Cours</Link>
+          <span className={styles.bcSep}>→</span>
+          <span className={styles.bcCurrent}>{module.titre}</span>
+        </div>
         <span className={styles.emoji}>{module.emoji}</span>
         <p className={styles.numero}>Module 0{module.numero}</p>
         <h1 className={styles.titre}>{module.titre}</h1>
