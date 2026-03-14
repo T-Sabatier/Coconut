@@ -23,14 +23,14 @@ export default function Header() {
         <Link href="/about" className={styles.link}>À propos</Link>
         {session ? (
           <div className={styles.userArea}>
-            <span className={styles.userName}>{session.user?.name}</span>
-            <button
-              onClick={() => signOut({ callbackUrl: '/' })}
-              className={styles.btnConnect}
-            >
-              Se déconnecter
-            </button>
-          </div>
+  <Link href="/compte" className={styles.userName}>{session.user?.name}</Link>
+  <button
+    onClick={() => signOut({ callbackUrl: '/' })}
+    className={styles.btnConnect}
+  >
+    Se déconnecter
+  </button>
+</div>
         ) : (
           <Link href="/login" className={styles.btnConnect}>Se connecter</Link>
         )}
