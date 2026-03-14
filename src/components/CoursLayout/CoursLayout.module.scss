@@ -16,39 +16,24 @@
 }
 
 .sidebarHeader {
-  padding: 24px 20px;
+  padding: 20px 20px 16px;
   border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .backLink {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-mid);
   text-decoration: none;
-  display: block;
-  margin-bottom: 16px;
   transition: color 0.2s;
 
   &:hover { color: var(--ink); }
 }
 
-.moduleInfo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.moduleEmoji {
-  font-size: 1.2rem;
-}
-
-.moduleTitle {
-  font-family: var(--font-cormorant);
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--ink);
-}
 
 .nav {
   padding: 12px 0;
@@ -56,7 +41,7 @@
   flex-direction: column;
 }
 
-.chapitreLink {
+.leconLink {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -74,12 +59,12 @@
     background: white;
     border-left-color: var(--yellow);
 
-    .chapitreNum { color: var(--yellow-mid); }
-    .chapitreTitre { color: var(--ink); font-weight: 500; }
+    .leconNum { color: var(--yellow-mid); }
+    .leconTitre { color: var(--ink); font-weight: 500; }
   }
 }
 
-.chapitreNum {
+.leconNum {
   font-family: var(--font-cormorant);
   font-size: 0.85rem;
   color: var(--ivory-dark);
@@ -87,7 +72,7 @@
   transition: color 0.2s;
 }
 
-.chapitreTitre {
+.leconTitre {
   font-size: 0.78rem;
   color: var(--text-mid);
   line-height: 1.4;
@@ -97,4 +82,12 @@
 .content {
   background: var(--ivory);
   overflow-y: auto;
+}
+
+.chapitreTitle {
+  font-family: var(--font-cormorant);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
 }

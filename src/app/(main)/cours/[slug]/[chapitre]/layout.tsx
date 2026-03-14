@@ -1,14 +1,21 @@
-import { getModuleBySlug } from '@/sanity/lib/queries'
+import { getChapitreWithLecons } from '@/sanity/lib/queries'
 import CoursLayout from '@/components/CoursLayout/CoursLayout'
 
 interface Props {
   children: React.ReactNode
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string, chapitre: string }>
 }
 
 export default async function Layout({ children, params }: Props) {
-  const { slug } = await params
-  const module = await getModuleBySlug(slug)
+  const { slug, chapitre } = await params
+  const chapitreData = await getChapitreWithLecons(chapitre)
 
-  return <CoursLayout module={module} slug={slug}>{children}</CoursLayout>
+  return (
+    <CoursLayout 
+      chapitre={chapitreData} 
+      moduleSlug={slug}
+    >
+      {children}
+    </CoursLayout>
+  )
 }

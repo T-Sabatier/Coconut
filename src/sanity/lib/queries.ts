@@ -88,3 +88,51 @@ export async function searchChapitres(query: string) {
     )
   )
 }
+export async function getChapitreWithLecons(chapitreSlug: string) {
+  return await client.fetch(`
+    *[_type == "chapitre" && slug.current == $chapitreSlug][0] {
+      _id,
+      titre,
+      "slug": slug.current,
+      "module": module-> {
+        titre,
+        numero,
+        emoji,
+        "slug": slug.current
+      },
+      "lecons": *[_type == "lecon" && chapitre._ref == ^._id] | order(ordre asc) {
+        _id,
+        titre,
+        "slug": slug.current,
+        ordre
+      }
+    }
+  `, { chapitreSlug })
+}
+
+export async function getLeconBySlug(leconSlug: string) {
+  return await client.fetch(`
+    *[_type == "lecon" && slug.current == $leconSlug][0] {
+      _id,
+      titre,
+      contenu,
+      ordre,
+      "chapitre": chapitre-> {
+        titre,
+        "slug": slug.current,
+        "module": module-> {
+          titre,
+          numero,
+          emoji,
+          "slug": slug.current
+        },
+        "lecons": *[_type == "lecon" && chapitre._ref == ^._id] | order(ordre asc) {
+          _id,
+          titre,
+          "slug": slug.current,
+          ordre
+        }
+      }
+    }
+  `, { leconSlug })
+}

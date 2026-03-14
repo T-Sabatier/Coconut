@@ -3,55 +3,66 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from './CoursLayout.module.scss'
 
-interface Chapitre {
+interface Lecon {
   _id: string
   titre: string
   slug: string
   ordre: number
 }
 
-interface Module {
+interface Chapitre {
   titre: string
-  numero: number
-  emoji: string
-  chapitres: Chapitre[]
+  slug: string
+  lecons: Lecon[]
+  module: {
+    titre: string
+    numero: number
+    emoji: string
+    slug: string
+  }
 }
 
 interface Props {
   children: React.ReactNode
-  module: Module
-  slug: string
+  chapitre: Chapitre
+  moduleSlug: string
 }
 
-export default function CoursLayout({ children, module, slug }: Props) {
+export default function CoursLayout({ children, chapitre, moduleSlug }: Props) {
   const pathname = usePathname()
 
   return (
     <div className={styles.layout}>
       <aside className={styles.sidebar}>
         <div className={styles.sidebarHeader}>
-          <Link href="/cours" className={styles.backLink}>← Cours</Link>
-          <div className={styles.moduleInfo}>
-            <span className={styles.moduleEmoji}>{module.emoji}</span>
-            <span className={styles.moduleTitle}>{module.titre}</span>
-          </div>
-        </div>
+  <Link href={`/cours/${moduleSlug}`} className={styles.backLink}>
+    ← {chapitre.module.emoji} {chapitre.module.titre}
+  </Link>
+  <span className={styles.chapitreTitle}>{chapitre.titre}</span>
+</div>
 
         <nav className={styles.nav}>
-          {module.chapitres?.map((chapitre, index) => {
-            const href = `/cours/${slug}/${chapitre.slug}`
+  <Link
+    href={`/cours/${moduleSlug}/${chapitre.slug}`}
+    className={`${styles.leconLink} ${pathname === `/cours/${moduleSlug}/${chapitre.slug}` ? styles.active : ''}`}
+  >
+    <span className={styles.leconNum}>00</span>
+    <span className={styles.leconTitre}>Introduction</span>
+  </Link>
+          {chapitre.lecons?.map((lecon, index) => {
+            const href = `/cours/${moduleSlug}/${chapitre.slug}/${lecon.slug}`
             const isActive = pathname === href
 
             return (
               <Link
-                key={chapitre._id}
+                key={lecon._id}
                 href={href}
-                className={`${styles.chapitreLink} ${isActive ? styles.active : ''}`}
+                className={`${styles.leconLink} ${isActive ? styles.active : ''}`}
               >
-                <span className={styles.chapitreNum}>
+                <span className={styles.leconNum}>
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <span className={styles.chapitreTitre}>{chapitre.titre}</span>
+                <span className={styles.leconTitre}>{lecon.titre}</span>
               </Link>
             )
           })}
