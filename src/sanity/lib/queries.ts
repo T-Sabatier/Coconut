@@ -9,7 +9,8 @@ export async function getModules() {
       numero,
       emoji,
       description,
-      "slug": slug.current
+      "slug": slug.current,
+      "chapitresCount": count(*[_type == "chapitre" && module._ref == ^._id])
     }
   `)
 }

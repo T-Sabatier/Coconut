@@ -7,7 +7,8 @@ interface Module {
   numero: number
   emoji: string
   description: string
-  slug: string 
+  slug: string
+  chapitresCount: number 
 }
 
 interface Props {
@@ -19,7 +20,7 @@ export default function Modules({ modules }: Props) {
     <section className={styles.section}>
       <div className={styles.head}>
         <h2>Les <em>modules</em></h2>
-        <span className={styles.headRight}>7 modules · 53 chapitres</span>
+        <span className={styles.headRight}>{modules.length} modules</span>
       </div>
 
       <div className={styles.grid}>
@@ -34,7 +35,7 @@ export default function Modules({ modules }: Props) {
                 <h3 className={styles.cardTitle}>{module.titre}</h3>
                 <p className={styles.cardTopics}>{module.description}</p>
                 <div className={styles.cardFooter}>
-                  <span className={styles.cardCount}>chapitres</span>
+                  <span className={styles.cardCount}>{module.chapitresCount || 0} chapitres</span>
                   <span className={styles.cardArrow}>↗</span>
                 </div>
               </div>

@@ -28,7 +28,7 @@ export default async function CoursPage() {
               <h2 className={styles.cardTitre}>{module.titre}</h2>
               <p className={styles.cardDesc}>{module.description}</p>
               <div className={styles.cardFooter}>
-                <span className={styles.cardCount}>{module.chapitres?.length || '—'} chapitres</span>
+                <span className={styles.cardCount}>{module.chapitresCount || 0} chapitres</span>
                 <span className={styles.cardArrow}>→</span>
               </div>
             </div>
