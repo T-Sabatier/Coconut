@@ -124,3 +124,28 @@
   &:hover { opacity: 0.85; }
   &:disabled { opacity: 0.5; cursor: not-allowed; }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    background: var(--ivory-mid);
+    padding: 40px 24px;
+  }
+
+  .eyebrow {
+    color: var(--yellow-mid);
+  }
+
+  .titre {
+    font-family: var(--font-cormorant);
+    font-size: 1.8rem;
+    color: var(--ink);
+  }
+
+  .email {
+    color: var(--text-mid);
+  }
+
+  .content {
+    padding: 32px 24px;
+  }
+}
