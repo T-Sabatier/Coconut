@@ -151,3 +151,48 @@
   margin-left: auto;
   margin-right: 16px;
 }
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 24px 24px 40px;
+  }
+
+  .emoji {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .numero {
+    font-size: 0.6rem;
+  }
+
+  .titre {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 0.75rem;
+  }
+
+  .chapitres {
+    padding: 32px 24px;
+  }
+
+  .chapitresTitle {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .cardNum {
+    font-size: 0.9rem;
+    min-width: 24px;
+  }
+
+  .cardTitre {
+    font-size: 0.8rem;
+  }
+}

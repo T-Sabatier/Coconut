@@ -98,3 +98,49 @@
     font-weight: 600;
   }
 }
+
+.sidebarHeaderBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggleIcon {
+  display: none;
+  font-size: 0.7rem;
+  color: var(--text-mid);
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sidebarHeader {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .navOpen {
+    display: flex;
+  }
+
+  .content {
+    overflow-y: visible;
+  }
+
+   .toggleIcon {
+    display: block;
+  }
+}

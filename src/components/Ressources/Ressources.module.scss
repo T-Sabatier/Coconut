@@ -65,3 +65,18 @@
   color: var(--text-mid);
   line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 24px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .head h2 {
+    font-size: 1.8rem;
+  }
+}

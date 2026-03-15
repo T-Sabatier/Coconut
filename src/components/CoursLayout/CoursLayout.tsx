@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 import styles from './CoursLayout.module.scss'
 
 interface Lecon {
@@ -31,21 +32,33 @@ interface Props {
 
 export default function CoursLayout({ children, chapitre, moduleSlug, leconsLues }: Props) {
   const pathname = usePathname()
+  const [navOpen, setNavOpen] = useState(false)
 
   return (
     <div className={styles.layout}>
       <aside className={styles.sidebar}>
-        <div className={styles.sidebarHeader}>
-          <Link href={`/cours/${moduleSlug}`} className={styles.backLink}>
+        <div 
+          className={styles.sidebarHeader}
+          onClick={() => setNavOpen(!navOpen)}
+        >
+          <Link 
+            href={`/cours/${moduleSlug}`} 
+            className={styles.backLink}
+            onClick={e => e.stopPropagation()}
+          >
             ← {chapitre.module.emoji} {chapitre.module.titre}
           </Link>
-          <span className={styles.chapitreTitle}>{chapitre.titre}</span>
+          <div className={styles.sidebarHeaderBottom}>
+            <span className={styles.chapitreTitle}>{chapitre.titre}</span>
+            <span className={styles.toggleIcon}>{navOpen ? '▲' : '▼'}</span>
+          </div>
         </div>
 
-        <nav className={styles.nav}>
+        <nav className={`${styles.nav} ${navOpen ? styles.navOpen : ''}`}>
           <Link
             href={`/cours/${moduleSlug}/${chapitre.slug}`}
             className={`${styles.leconLink} ${pathname === `/cours/${moduleSlug}/${chapitre.slug}` ? styles.active : ''}`}
+            onClick={() => setNavOpen(false)}
           >
             <span className={styles.leconNum}>00</span>
             <span className={styles.leconTitre}>Introduction</span>
@@ -61,6 +74,7 @@ export default function CoursLayout({ children, chapitre, moduleSlug, leconsLues
                 key={lecon._id}
                 href={href}
                 className={`${styles.leconLink} ${isActive ? styles.active : ''} ${isLu ? styles.lu : ''}`}
+                onClick={() => setNavOpen(false)}
               >
                 <span className={styles.leconNum}>
                   {isLu ? '✓' : String(index + 1).padStart(2, '0')}

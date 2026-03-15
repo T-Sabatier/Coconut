@@ -24,25 +24,25 @@ export default function Modules({ modules }: Props) {
       </div>
 
       <div className={styles.grid}>
-        {modules.map((module) => (
-          <Link href={`/cours/${module.slug}`} key={module._id} className={styles.cardLink}>
-            <div className={styles.card}>
-              <div className={styles.cardBand}>
-                <span className={styles.cardNum}>0{module.numero}</span>
-                <span className={styles.cardIcon}>{module.emoji}</span>
-              </div>
-              <div className={styles.cardBody}>
-                <h3 className={styles.cardTitle}>{module.titre}</h3>
-                <p className={styles.cardTopics}>{module.description}</p>
-                <div className={styles.cardFooter}>
-                  <span className={styles.cardCount}>{module.chapitresCount || 0} chapitres</span>
-                  <span className={styles.cardArrow}>↗</span>
-                </div>
-              </div>
-            </div>
-          </Link>
-        ))}
+  {modules.map((module) => (
+    <Link href={`/cours/${module.slug}`} key={module._id} className={styles.cardLink}>
+      <div className={styles.card}>
+        <div className={styles.cardBand}>
+          <span className={styles.cardNum}>0{module.numero}</span>
+          <span className={styles.cardIcon}>{module.emoji}</span>
+        </div>
+        <div className={styles.cardBody}>
+          <h3 className={styles.cardTitle}>{module.titre}</h3>
+          <p className={styles.cardTopics}>{module.description}</p>
+          <div className={styles.cardFooter}>
+            <span className={styles.cardCount}>{module.chapitresCount || 0} chapitres</span>
+            <span className={styles.cardArrow}>↗</span>
+          </div>
+        </div>
       </div>
+    </Link>
+  ))}
+</div>
     </section>
   )
 }
