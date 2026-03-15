@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import styles from './MarquerLu.module.scss'
 
 interface Props {
@@ -14,6 +15,7 @@ export default function MarquerLu({ leconId, chapitreId, moduleSlug, dejaLu }: P
   const { data: session } = useSession()
   const [lu, setLu] = useState(dejaLu)
   const [loading, setLoading] = useState(false)
+  const router = useRouter()
 
   if (!session) return null
 
@@ -29,6 +31,7 @@ export default function MarquerLu({ leconId, chapitreId, moduleSlug, dejaLu }: P
 
     setLu(true)
     setLoading(false)
+    router.refresh()
   }
 
   return (
