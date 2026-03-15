@@ -37,11 +37,15 @@ export async function getModuleBySlug(slug: string) {
         _id,
         titre,
         ordre,
-        "slug": slug.current
+        "slug": slug.current,
+        "lecons": *[_type == "lecon" && chapitre._ref == ^._id] {
+          _id
+        }
       }
     }
   `, { slug })
 }
+
 export async function getChapitreBySlug(chapitreSlug: string) {
   return await client.fetch(`
     *[_type == "chapitre" && slug.current == $chapitreSlug][0] {

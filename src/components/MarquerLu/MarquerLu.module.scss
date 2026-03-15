@@ -1,0 +1,36 @@
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-jost);
+  transition: all 0.2s;
+
+  &:hover {
+    background: var(--ink);
+    color: var(--ivory);
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.lu {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+
+  &:hover {
+    background: var(--yellow);
+    color: var(--ink);
+  }
+}

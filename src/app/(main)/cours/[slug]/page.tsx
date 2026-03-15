@@ -1,4 +1,7 @@
 import { getModuleBySlug } from '@/sanity/lib/queries'
+import { auth } from '@/auth'
+import { connectDB } from '@/lib/mongodb'
+import User from '@/models/User'
 import Link from 'next/link'
 import styles from './ModuleIntro.module.scss'
 
@@ -10,7 +13,16 @@ export default async function CoursIndexPage({ params }: Props) {
   const { slug } = await params
   const module = await getModuleBySlug(slug)
 
-return (
+  const session = await auth()
+  let leconsLues: string[] = []
+
+  if (session) {
+    await connectDB()
+    const user = await User.findOne({ email: session.user?.email })
+    leconsLues = user?.progression?.map((p: any) => p.leconId) || []
+  }
+
+  return (
     <main className={styles.main}>
       <div className={styles.hero}>
         <div className={styles.breadcrumb}>
@@ -31,17 +43,29 @@ return (
           {module.chapitres?.length} chapitres disponibles
         </h2>
         <div className={styles.liste}>
-          {module.chapitres?.map((chapitre: any, index: number) => (
-            <Link
-              href={`/cours/${slug}/${chapitre.slug}`}
-              key={chapitre._id}
-              className={styles.card}
-            >
-              <span className={styles.cardNum}>{String(index + 1).padStart(2, '0')}</span>
-              <span className={styles.cardTitre}>{chapitre.titre}</span>
-              <span className={styles.cardArrow}>→</span>
-            </Link>
-          ))}
+          {module.chapitres?.map((chapitre: any, index: number) => {
+            const leconslues = chapitre.lecons?.filter((l: any) =>
+              leconsLues.includes(l._id)
+            ).length || 0
+            const total = chapitre.lecons?.length || 0
+
+            return (
+              <Link
+                href={`/cours/${slug}/${chapitre.slug}`}
+                key={chapitre._id}
+                className={styles.card}
+              >
+                <span className={styles.cardNum}>{String(index + 1).padStart(2, '0')}</span>
+                <span className={styles.cardTitre}>{chapitre.titre}</span>
+                {session && total > 0 && (
+                  <span className={styles.cardProgression}>
+                    {leconslues}/{total} leçons
+                  </span>
+                )}
+                <span className={styles.cardArrow}>→</span>
+              </Link>
+            )
+          })}
         </div>
       </div>
     </main>
